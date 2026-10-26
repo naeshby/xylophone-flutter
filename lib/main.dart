@@ -11,6 +11,20 @@ class XylophoneApp extends StatelessWidget {
     print("note$note played");
   }
 
+  Expanded buildkey(int num, Color pad) {
+    return Expanded(
+      child: TextButton(
+          style: TextButton.styleFrom(
+              shape: BeveledRectangleBorder(),
+              backgroundColor: pad,
+              foregroundColor: Colors.white),
+          onPressed: () {
+            note(num);
+          },
+          child: Text("Button $num")),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
@@ -21,94 +35,13 @@ class XylophoneApp extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
-              Expanded(
-                child: TextButton(
-                    style: TextButton.styleFrom(
-                        shape: BeveledRectangleBorder(),
-                        backgroundColor: Colors.red,
-                        foregroundColor: Colors.white),
-                    onPressed: () {
-                      note(1);
-                    },
-                    child: Text("Button 1")),
-              ),
-              Expanded(
-                child: TextButton(
-                    style: TextButton.styleFrom(
-                        shape: BeveledRectangleBorder(),
-                        backgroundColor: Colors.orange,
-                        foregroundColor: Colors.white),
-                    onPressed: () {
-                      note(2);
-                    },
-                    child: Text("Button 2")),
-              ),
-              Expanded(
-                child: TextButton(
-                    style: TextButton.styleFrom(
-                        shape: BeveledRectangleBorder(),
-                        backgroundColor: Colors.yellow,
-                        foregroundColor: Colors.white),
-                    onPressed: () {
-                      note(3);
-                    },
-                    child: Text("Button 3")),
-              ),
-              Expanded(
-                child: TextButton(
-                    style: TextButton.styleFrom(
-                        shape: BeveledRectangleBorder(),
-                        backgroundColor: Colors.green,
-                        foregroundColor: Colors.white),
-                    onPressed: () {
-                      note(3);
-                    },
-                    child: Text("Button 3")),
-              ),
-              Expanded(
-                child: TextButton(
-                    style: TextButton.styleFrom(
-                        shape: BeveledRectangleBorder(),
-                        backgroundColor: Colors.blue,
-                        foregroundColor: Colors.white),
-                    onPressed: () {
-                      note(4);
-                    },
-                    child: Text("Button 4")),
-              ),
-              Expanded(
-                child: TextButton(
-                    style: TextButton.styleFrom(
-                        shape: BeveledRectangleBorder(),
-                        backgroundColor: Colors.indigo,
-                        foregroundColor: Colors.white),
-                    onPressed: () {
-                      note(5);
-                    },
-                    child: Text("Button 5")),
-              ),
-              Expanded(
-                child: TextButton(
-                    style: TextButton.styleFrom(
-                        shape: BeveledRectangleBorder(),
-                        backgroundColor: Colors.purple,
-                        foregroundColor: Colors.white),
-                    onPressed: () {
-                      note(6);
-                    },
-                    child: Text("Button 6")),
-              ),
-              Expanded(
-                child: TextButton(
-                    style: TextButton.styleFrom(
-                        shape: BeveledRectangleBorder(),
-                        backgroundColor: Colors.brown,
-                        foregroundColor: Colors.white),
-                    onPressed: () {
-                      note(7);
-                    },
-                    child: Text("Button 7")),
-              ),
+              buildkey(1, Colors.red),
+              buildkey(2, Colors.orange),
+              buildkey(3, Colors.yellow),
+              buildkey(4, Colors.green),
+              buildkey(5, Colors.blue),
+              buildkey(6, Colors.indigo),
+              buildkey(7, Colors.purple ),
             ],
           ),
         ),
